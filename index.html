@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seattle Rainfall Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Seattle Rainfall Analysis</h1>
+        <p>Historical rainfall data from April 1, 2023 to September 30, 2023</p>
+    </header>
+
+    <div class="banner">
+        <p>This prototype uses sample data compatible with IBM's Weather Company Data API format.</p>
+    </div>
+
+    <button id="fetchData">Load Rainfall Data</button>
+
+    <div id="loading" class="loading">Click "Load Rainfall Data" to begin the analysis.</div>
+
+    <div id="data-container" style="display: none;">
+        <div class="tab-container">
+            <div class="tab active" data-tab="daily">Daily Rainfall</div>
+            <div class="tab" data-tab="monthly">Monthly Summary</div>
+        </div>
+
+        <div class="container">
+            <div class="chart-container tab-content active" id="daily-chart-container">
+                <canvas id="rainfallChart"></canvas>
+            </div>
+            
+            <div class="chart-container tab-content" id="monthly-chart-container">
+                <canvas id="monthlyChart"></canvas>
+            </div>
+
+            <div class="stats-container">
+                <h2>Rainfall Statistics</h2>
+                <div class="stat-box">
+                    <h3>Total Rainfall</h3>
+                    <p id="totalRainfall">0 mm</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Average Daily Rainfall</h3>
+                    <p id="avgRainfall">0 mm</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Rainiest Day</h3>
+                    <p id="rainiestDay">None</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Rainiest Month</h3>
+                    <p id="rainiestMonth">None</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Dry Days</h3>
+                    <p id="dryDays">0 days</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Wet Days</h3>
+                    <p id="wetDays">0 days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-source">
+        <p>Data format compatible with IBM Weather Company Data API</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
